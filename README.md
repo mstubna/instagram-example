@@ -1,4 +1,4 @@
-# Instagram Example application
+# Example Instagram Application
 
 A demo of a simple app that uses the [Instagram gem](https://github.com/Instagram/instagram-ruby-gem)
 
