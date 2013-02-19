@@ -1,0 +1,4 @@
+client_id: "Instagram client_id"
+client_secret: "Instagram client_secret"
+access_token: "Instagram access_token"
+secret_token: "Rails secret token"

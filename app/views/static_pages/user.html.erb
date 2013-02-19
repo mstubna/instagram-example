@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand">Instagram Example</a>
+      <ul class="nav">
+        <li><%= link_to "Home", root_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container content">
+  <p><%= @user[:name] %>'s top ten recent Instagram hashtags</p>
+  <nav></nav>
+  <div id="hashes">
+    <% for tag in @images_hashtags %>
+        <div class="hash btn btn-small <%=tag%>"><%= tag %></div>
+    <% end %>
+  </div>
+  <%= content_tag :div, "", id: "image_container", data: {images: @images} %>
+</div>
