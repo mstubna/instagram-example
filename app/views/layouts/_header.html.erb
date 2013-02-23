@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand">Instagram Example</a>
+      <ul class="nav">
+        <% for nav_item in [["Home", root_path], ["About", "/about"]] %>
+          <li class=<%= yield(:active_page) == nav_item[0] ? "active" : "" %>><%= link_to nav_item[0], nav_item[1] %></li>        
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

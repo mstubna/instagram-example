@@ -2,7 +2,7 @@
 
 A demo of a simple app that uses the [Instagram gem](https://github.com/Instagram/instagram-ruby-gem)
 
-This app demonstrates fetching several users' recent feeds, organizing each user's images by their most popular hashtags, and displaying each user's feed on an interactive page.
+This app demonstrates fetching several users' recent feeds, organizing each user's images by their most popular hashtags, and displaying the images in a simple gallery.
 
 ## Steps to Run
 
@@ -22,7 +22,10 @@ This app demonstrates fetching several users' recent feeds, organizing each user
 1. [Register your app with Instagram](http://instagram.com/developer/clients/register/) - this will provide you with your `client_id`, `client_secret`, and `redirect_url`
 2. Generate an authorization code:
 
-        https://instagram.com/oauth/authorize/?client_id=your_client_id_&redirect_uri=your_apps_redirect_url&response_type=code
+        https://instagram.com/oauth/authorize/?
+        client_id=your_client_id&
+        redirect_uri=your_redirect_url&
+        response_type=code
 
 3. Generate an access token:
 

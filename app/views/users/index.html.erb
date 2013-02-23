@@ -1,0 +1,10 @@
+<% provide(:active_page, "Home") %>
+<div class="container content">
+  <div class="nav">
+    <% @users.each do |user| %>
+      <li class="user">
+        <%= link_to user[:name], user_path(user[:name]) %>
+      </li>
+    <% end %>
+  </div>
+</div>

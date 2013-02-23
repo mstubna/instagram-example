@@ -1,0 +1,36 @@
+@import "bootstrap";
+
+body {
+  padding-top: 10px;
+}
+
+h1, .hash, figcaption, nav, label, .btn, select, a {
+  color: #555;
+  font-family: Arial, sans-serif;
+}
+
+.user{
+  float: left;
+  margin: 10px;
+}
+
+#hashes{
+  margin-top: 10px;
+}
+
+.hash {
+  margin: 3px;
+}
+
+figure {
+  float: left;
+  width: 306px;
+  figcaption {
+    font-size: 13px;
+    height: 40px;
+  }
+}
+
+#image_container {
+  clear: both;
+}
