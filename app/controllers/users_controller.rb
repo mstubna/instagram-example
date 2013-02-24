@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     
   def show
     @user = $users.select{ |u| u[:name] == params[:id] }.first
-    lookup_images_for(@user)
+    @images = lookup_images_for(@user)
+    @images_hashtags = extract_top_ten_hashtags(@images)
   end
   
 end

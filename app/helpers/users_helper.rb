@@ -9,24 +9,28 @@ module UsersHelper
     #data = Instagram.user_recent_media(@user[:user_id], {count: 60})
 
     # process and store image data
-    @images = {"none" => []}
+    images = {"none" => []}
     for image in data
       caption = image['caption'] ? image['caption']['text'] : ""
       image_data = {'url' => image['images']['low_resolution']['url'], 'caption' => caption}
       if image["tags"].empty?
-       @images["none"] << image_data
+       images["none"] << image_data
       else        
         for tag in image["tags"]
-          unless @images.has_key?(tag)
-            @images[tag] = []
+          unless images.has_key?(tag)
+            images[tag] = []
           end       
-          @images[tag] << image_data
+          images[tag] << image_data
         end
       end
     end
-
-    @images_hashtags = @images.keys.sort_by{ |x| @images[x].length }.reverse[0..9]
+    
+    images
+      
+  end
   
+  def extract_top_ten_hashtags(images)
+    images.keys.sort_by{ |x| images[x].length }.reverse[0..9]    
   end
   
 end
