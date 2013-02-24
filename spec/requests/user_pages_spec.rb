@@ -29,7 +29,7 @@ describe "User pages" do
       
       describe "should have a list of buttons corresponding to the user's tags" do
         for ht in extract_top_ten_hashtags(lookup_images_for(user))
-          it { should have_selector("div.#{ht}") }
+          it { should have_selector("div.#{ht}") }          
         end
       end      
     end

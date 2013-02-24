@@ -4,9 +4,7 @@ module UsersHelper
   
   def lookup_images_for(user)
     
-    serialized = File.read("secrets/full_instagram_json_data.txt")
-    data = JSON.parse(serialized)["data"]
-    #data = Instagram.user_recent_media(@user[:user_id], {count: 60})
+    data = Instagram.user_recent_media(@user[:user_id], {count: 60})
 
     # process and store image data
     images = {"none" => []}
