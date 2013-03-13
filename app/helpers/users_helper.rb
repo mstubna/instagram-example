@@ -2,11 +2,12 @@ module UsersHelper
   
   $users = [{name: "Warren", user_id: 226939267}, {name: "Mike", user_id: 6230423}, {name: "John", user_id: 8387844}, {name: "Steevo", user_id: 27501165}, {name: "Tony", user_id: 2001065}]
   
-  def lookup_images_for(user)
-    
+  def lookup_image_data_for(user)
     data = Instagram.user_recent_media(@user[:user_id], {count: 60})
-
-    # process and store image data
+  end
+    
+  def extract_images_from_data(data)
+    
     images = {"none" => []}
     for image in data
       caption = image['caption'] ? image['caption']['text'] : ""

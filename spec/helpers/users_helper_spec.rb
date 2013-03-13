@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe UsersHelper do
-  
+describe 'UsersHelper' do
+    
   describe "list of users" do    
     it "should be a non-empty array" do
       $users.should_not be nil
@@ -12,7 +12,15 @@ describe UsersHelper do
     end
   end
   
-  let(:images) { helper.lookup_images_for($users.first) }
+  # stub helper so it doesn't hit the Instragram API during testing
+  before(:each) do
+    helper.stub(:lookup_image_data_for) do |arg|
+      serialized = File.read("data/test_instagram_data.txt")
+      data = JSON.parse(serialized)["data"]
+    end
+  end
+      
+  let(:images) { helper.extract_images_from_data(helper.lookup_image_data_for($users.first)) }
     
   describe "lookup_images_for" do    
     it "should return a hash of image data" do

@@ -1,5 +1,4 @@
 require 'spec_helper'
-include UsersHelper
 
 describe "User pages" do
 
@@ -19,20 +18,29 @@ describe "User pages" do
     end
   end
   
+  # stub controller so it doesn't hit the Instragram API during testing
+  before(:each) do
+    UsersController.any_instance.stub(:lookup_image_data_for) do |arg|
+      serialized = File.read("data/test_instagram_data.txt")
+      data = JSON.parse(serialized)["data"]
+    end
+  end
+  
   describe "Show page" do
     for user in $users
-      before { visit user_path(user[:name]) }
       
+      before { visit user_path(user[:name]) }
+                  
       describe "should have a list of hashtags" do
         it { should have_selector('div#hashes') }
       end
-      
+  
       describe "should have a list of buttons corresponding to the user's tags" do
-        for ht in extract_top_ten_hashtags(lookup_images_for(user))
+        for ht in ['none', 'lqccrazytrain', 'holyquartet']
           it { should have_selector("div.#{ht}") }          
         end
-      end      
+      end
     end
   end
-
+  
 end
